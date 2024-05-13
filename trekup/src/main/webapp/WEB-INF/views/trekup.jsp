@@ -25,10 +25,57 @@
 <!-- Menu -->
 <%@ include file="/WEB-INF/views/common/menu.jsp" %>
 
-<table>
-<tr><td>pleaase work</td></tr>
-</table>
-
+<form:form>
+	<div style="width=1500; margin=auto;">
+		<div class="row d-flex m-3">
+			<div class="d-flex justify-content-center">
+				<table class="table table-striped" style="width:700px;">
+					<thead class="thead-dark">
+						<tr>
+							<td colspan="3">
+								<b>DATABASE TEST</b>
+							</td>
+						</tr>
+					</thead>
+					<tr>
+						<td>
+						1.1
+						</td>
+						<td>
+						1.2
+						</td>
+						<td>
+						1.3
+						</td>
+					</tr>
+					<tr>
+						<td>
+						2.1
+						</td>
+						<td>
+						2.2
+						</td>
+						<td>
+						2.3
+						</td>
+					</tr>
+					<tr>
+						<td>
+						3.1
+						</td>
+						<td>
+						3.2
+						</td>
+						<td>
+						3.3
+						</td>
+					</tr>
+				</table>
+			</div>
+			<button type="submit" class="btn btn-light btn-outline-secondary text-dark mx-auto" style="width:150px;">Submit</button>
+		</div>
+	</div>
+</form:form>
 <!-- Footer -->
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
