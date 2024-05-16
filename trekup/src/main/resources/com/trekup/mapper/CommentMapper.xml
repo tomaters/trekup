@@ -1,3 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.trekup.mapper.CommentMapper"></mapper>
+<mapper namespace="com.trekup.mapper.CommentMapper">
+	
+	<!-- retrieve comment with specified comment number -->
+	<select id="getComment" resultType="Comment">
+		SELECT * FROM comments WHERE comment_no=#{comment_no}
+	</select>
+
+	<!-- retrieve all comments -->
+	<select id="getCommentList" resultType="Comment">
+		SELECT comments_no, username, comments_date, comments_text FROM comments
+	</select>
+
+	<!-- insert a comment -->
+	<insert id="insertComment">
+		INSERT INTO comments(comments_no, username, comments_date, comments_text) 
+			VALUES(commentNo_seq.nextVal, #{username}, SYSDATE, #{comments_text})
+	</insert>
+	
+	<!-- delete a comment -->
+	<delete id="deleteComment">
+		DELETE FROM comments WHERE comments_no=#{comments_no}
+	</delete>
+</mapper>

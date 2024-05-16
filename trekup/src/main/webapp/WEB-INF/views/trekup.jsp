@@ -25,7 +25,7 @@
 <!-- Menu -->
 <%@ include file="/WEB-INF/views/common/menu.jsp" %>
 
-<form:form>
+<form:form modelAttribute="comment" action="/comment/insertComment">
 	<div style="width=1500; margin=auto;">
 		<div class="row d-flex m-3">
 			<div class="d-flex justify-content-center">
@@ -39,24 +39,18 @@
 					</thead>
 					<tr>
 						<td>
-						1.1
+							Enter username
 						</td>
 						<td>
-						1.2
-						</td>
-						<td>
-						1.3
+						<input type="text" name="username" id="username" class="form-control">
 						</td>
 					</tr>
 					<tr>
 						<td>
-						2.1
+						Enter text
 						</td>
 						<td>
-						2.2
-						</td>
-						<td>
-						2.3
+						<textarea id="comments_text" name="comments_text" rows="5" cols="80"></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -66,9 +60,6 @@
 						<td>
 						3.2
 						</td>
-						<td>
-						3.3
-						</td>
 					</tr>
 				</table>
 			</div>
@@ -76,6 +67,40 @@
 		</div>
 	</div>
 </form:form>
+		
+<!-- view comments -->
+<div class="container mt-5">
+	<h2>View comments</h2>
+	<form action="/comment/getCommentList" method="get">
+		<div class="d-flex justify-content-center mt-3">
+			<button type="submit" class="btn btn-light btn-outline-secondary text-dark mx-auto">Load comments</button>
+		</div>
+	</form>
+</div>
+		
+<!-- display comments -->
+<div class="container mt-5">
+	<h2>Comment List</h2>
+	<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Username</th>
+				<th>Date</th>
+				<th>Comment</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="comment" items="${commentList}">
+				<tr>
+					<td>${comment.username}</td>
+					<td>${comment.comments_date}</td>
+					<td>${comment.comments_text}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+</div>
+		
 <!-- Footer -->
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
