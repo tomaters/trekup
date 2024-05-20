@@ -20,9 +20,9 @@
 <script src="/script.js"></script>
 </head>
 <body>
-<!-- Header -->
+<!-- header -->
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<!-- Menu -->
+<!-- menu -->
 <%@ include file="/WEB-INF/views/common/menu.jsp" %>
 
 <form:form modelAttribute="comment" action="/comment/insertComment">
@@ -101,7 +101,7 @@
 	</table>
 </div>
 		
-<!-- Footer -->
+<!-- footer -->
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

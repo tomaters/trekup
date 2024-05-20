@@ -1,4 +1,107 @@
+/* default styles for all elements */
 * {
-	box-sizing: border-box;
-	color: blue;
+    box-sizing: border-box;
+    color: black;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* body style */
+body {
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* center container content */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #80ff80;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* menu styles */
+nav {
+    background-color: #007bff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* form styles */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form button[type="submit"] {
+    background-color: white;
+    color: white;
+    border: 2px solid #dedede;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: #f5f5f5;
+}
+
+/* remove text decoration from links */
+a {
+	text-decoration: none;
+	color: black;
+}
+
+/* table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table thead {
+    background-color: #343a40;
+    color: white;
+}
+
+table thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* footer styles */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
 }
