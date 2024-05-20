@@ -90,10 +90,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="comment" items="${commentList}">
+			<!-- loop varStatus allows you to take the nth index of the array storing the dates -->
+			<c:forEach var="comment" items="${commentList}" varStatus="loop">
 				<tr>
 					<td>${comment.username}</td>
-					<td>${comment.comments_date}</td>
+					<td>${formattedDates[loop.index]}</td>
 					<td>${comment.comments_text}</td>
 				</tr>
 			</c:forEach>

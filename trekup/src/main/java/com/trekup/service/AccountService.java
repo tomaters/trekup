@@ -1,5 +1,8 @@
 package com.trekup.service;
 
-public class AccountService {
+import com.trekup.domain.Account;
 
+public interface AccountService {
+
+	public Account readByUsername(String username);
 }

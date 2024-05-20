@@ -1,5 +1,8 @@
 package com.trekup.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +38,20 @@ public class CommentController {
 	@GetMapping("/getCommentList")
 	public String getCommentList(Model model) throws Exception {
 		List<Comment> commentList = commentService.getCommentList();
-		model.addAttribute("commentList", commentList);
+		// formattedDates object list to use to call formatDate method below
+		List<String> formattedDates = new ArrayList<>();
 		for(Comment comment : commentList) {
-			log.info("/getCommentList: " + comment.toString());
+			// format date to relay only necessary data
+			formattedDates.add(formatDate(comment.getComments_date()));
 		}
+		model.addAttribute("commentList", commentList);
+		model.addAttribute("formattedDates", formattedDates);
 		return "trekup";
+	}
+	
+	private String formatDate(Date date) {
+		SimpleDateFormat formatDate = new SimpleDateFormat("MMM dd, yyyy (HH:mm:ss)");
+		return formatDate.format(date);
 	}
 	
 	@PostMapping("/insertComment")

@@ -1,5 +1,9 @@
 package com.trekup.mapper;
 
-public class AccountMapper {
+import com.trekup.domain.Account;
+
+public interface AccountMapper {
+
+	public Account readByUsername(String username);
 
 }
