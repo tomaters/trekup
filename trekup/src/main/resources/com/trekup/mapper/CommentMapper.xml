@@ -2,13 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.trekup.mapper.CommentMapper">
 	
+	<!-- resultMap uesd because MyBatis automatic mapping failed for getCommentList
+		this block explicitly maps each column to the corresponding properties 
+		this seems to come from ambiguity and metadata retrieval, but root cause is still unclear -->
+	<resultMap id="CommentResultMap" type="com.trekup.domain.Comment">
+		<id column="comments_no" property="comments_no"/>
+		<result column="username" property="username"/>
+		<result column="comments_date" property="comments_date"/>
+		<result column="comments_text" property="comments_text"/>
+	</resultMap>
+
 	<!-- retrieve comment with specified comment number -->
 	<select id="getComment" resultType="Comment">
 		SELECT * FROM comments WHERE comment_no=#{comment_no}
 	</select>
 
 	<!-- retrieve all comments -->
-	<select id="getCommentList" resultType="Comment">
+	<select id="getCommentList" resultMap="CommentResultMap">
 		SELECT comments_no, username, comments_date, comments_text FROM comments
 	</select>
 
