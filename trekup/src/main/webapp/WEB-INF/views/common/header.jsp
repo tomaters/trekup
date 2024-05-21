@@ -8,10 +8,8 @@
 			<div class="d-flex justify-content-between align-items-center">
 				<div class="">trekup</div>
 				<div class="">
-					<ul style="list-style-type:none">
-						<li>Login</li>
-						<li>Sign up</li>
-					</ul>
+					<div class=""><a href="account/login">Login</a></div>
+					<div class=""><a href="account/signup">Sign up</a></div>
 				</div>
 			</div>
 		</div>

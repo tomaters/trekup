@@ -23,7 +23,7 @@ public class AccountController {
 	
 	@GetMapping("/login")
 	public String login(String error, String logout) {
-		return "/";
+		return "account/login";
 	}
 	
 	@GetMapping("/loginFail")
