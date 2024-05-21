@@ -9,8 +9,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -32,6 +30,12 @@ public class SecurityConfig {
 
 	@Autowired
 	DataSource dataSource;
+	
+	@Autowired
+	CustomUserDetailsService customUserDetailsService;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
 	// filterChain configures security filter chain, which defines how HTTP requests are processed by Spring Security
 	@Bean
@@ -58,7 +62,8 @@ public class SecurityConfig {
 		http.rememberMe()
 			.key("common")
 			.tokenRepository(createJDBCRepository())
-			.tokenValiditySeconds(60*60*24);
+			.tokenValiditySeconds(60*60*24)
+			.userDetailsService(customUserDetailsService);
 		
 		return http.build();
 	}
@@ -69,27 +74,16 @@ public class SecurityConfig {
 		return new CustomLoginSuccessHandler();
 	}
 	
-	// create instance of CustomUserDetailsServie to implement UserDetailsService interface
-	@Bean
-	UserDetailsService createUserDetailsService() {
-		return new CustomUserDetailsService();
-	}
-	
-	// create instance of BCryptPasswordEncoder, which encodes passwords
-	@Bean
-	PasswordEncoder createPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-	
 	// create persistent token repository to implement remember-me functionality
 	private PersistentTokenRepository createJDBCRepository() {
 		JdbcTokenRepositoryImpl repository = new JdbcTokenRepositoryImpl();
 		repository.setDataSource(dataSource);
 		return repository;
 	}
-	
+
 	// configure authentication manager to use CustomUserDetailsService and password encoder
+	@Autowired
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(createUserDetailsService()).passwordEncoder(createPasswordEncoder());
+		auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder);
 	}
 }
