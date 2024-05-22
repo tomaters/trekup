@@ -13,7 +13,7 @@
 <!-- JQuery -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/common/style.css"/>
+<link rel="stylesheet" type="text/css" href="/style.css"/>
 <!-- JavaScript -->
 <script src="/WEB-INF/views/common/script.js"></script>
 </head>
@@ -22,8 +22,6 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <!-- Menu -->
 <%@ include file="/WEB-INF/views/common/menu.jsp" %>
-<!-- Footer -->
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 
 <div class="container mt-5">
     <div class="row d-flex justify-content-center">
@@ -51,6 +49,10 @@
         </div>
     </div>
 </div>
+
+<!-- Footer -->
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+
 
 </body>
 </html>

@@ -22,4 +22,14 @@
 			ON acc.username = auth.username
 			WHERE acc.username = #{username}
 	</select>
+	
+	<insert id="signup">
+		INSERT INTO account(username, password, name, reg_date, location)
+			VALUES (#{username}, #{password}, #{name}, SYSDATE, #{location})
+	</insert>
+	
+	<insert id="signupAuth">
+		INSERT INTO account_auth(username, auth)
+			VALUES (#{username}, #{auth})
+	</insert>
 </mapper>

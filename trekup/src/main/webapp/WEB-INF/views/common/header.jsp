@@ -4,12 +4,13 @@
 
 <div style="width:100%; margin:auto;">
 	<header>
-		<div class="row d-flex m-4">
+		<div class=
+		"row d-flex m-4">
 			<div class="d-flex justify-content-between align-items-center">
-				<div class="">trekup</div>
+				<div class=""><a href="/">trekup</a></div>
 				<div class="">
-					<div class=""><a href="account/login">Login</a></div>
-					<div class=""><a href="account/signup">Sign up</a></div>
+					<div class=""><a href="/account/login">login</a></div>
+					<div class=""><a href="/account/signup">sign up</a></div>
 				</div>
 			</div>
 		</div>

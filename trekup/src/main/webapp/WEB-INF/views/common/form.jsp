@@ -15,7 +15,7 @@
 <!-- JQuery -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/common/style.css"/>
+<link rel="stylesheet" type="text/css" href="/style.css"/>
 <!-- JavaScript -->
 <script src="/WEB-INF/views/common/script.js"></script>
 </head>
